@@ -1,0 +1,18 @@
+/*  */
+@media only screen and (max-width: 576px)  
+{
+    main{
+        padding: 0;
+    }
+    section{
+        padding-top: 20px;
+    }
+    /* advertisement block */
+    .advertisement{
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .advertisement .advertisement__item--main {
+        grid-column: span 2;
+    }
+}
