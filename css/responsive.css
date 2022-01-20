@@ -116,6 +116,14 @@
     /* category block */
     .category .category__item{
         min-width: 25%;
+        margin: 0 8px;
+        padding: 8px 5px 14px;
+    }
+    .category .category__title{
+        font-size: 16px;
+    }
+    .category .category__img{
+        width: 40%;
     }
     .logo img {
         width: 100%;
