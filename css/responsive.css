@@ -111,7 +111,7 @@
 @media only screen and (max-width: 576px)
 {
     .card{
-        min-width: 40%;
+        min-width: 50%;
     }
     /* category block */
     .category .category__item{
