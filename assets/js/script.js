@@ -52,8 +52,7 @@ const offerDate = () => {
 
 
 /*--- Start srollY window Script ---*/ 
-let scrollpos = window.scrollY;
-
+let   scrollpos     = window.scrollY;
 const header        = document.querySelector(".top-header");
 const header_height = header.offsetHeight;
 
@@ -106,6 +105,38 @@ const searchBook = () =>
 /*--- End searchBook Script ---*/
 
 
+/*--- Start addToCart Script ---*/
+
+const cartCounter   = document.getElementById('cart');
+const carts         = document.querySelectorAll('.js-cart');
+
+let storeCart = localStorage.getItem('cart_counter');
+let counter   = 0;
+
+const addToCart = () =>
+{
+    storeCart = storeCart === null ? 0 : storeCart;
+    counter   = storeCart;
+
+    counter !== 0 ? cartCounter.style.display = "block" : cartCounter.style.display = "none";
+
+    cartCounter.innerText = counter > 9 ? "9+" : counter;
+
+    carts.forEach (element => 
+        {
+            element.addEventListener('click' , (e) => 
+            {
+                counter !== 0 ? cartCounter.style.display = "block" : cartCounter.style.display = "none";
+                counter++;
+                cartCounter.innerText = counter > 9 ? "9+" : counter;
+                localStorage.setItem('cart_counter', counter)
+            })
+    });
+};
+
+window.addEventListener("load", addToCart);
+
+/*--- End addToCart Script ---*/
 
 
 
@@ -265,11 +296,3 @@ const closeImg = document.getElementById("close__img");
 closeImg.addEventListener('click' , ()=>{
     imgModel.style.display    = "none";
 })
-
-// Add To Cart Script
-let cart = 0;
-const addToCart = ()=>{
-    localStorage.setItem('cart' , ++cart);
-    // window.localStorage.cart = ++cart;
-    document.getElementById("cart").innerHTML = window.localStorage.getItem('cart');
-}
