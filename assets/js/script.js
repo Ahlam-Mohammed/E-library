@@ -46,7 +46,7 @@ const offerDate = () => {
     countDown("Jan 20, 2022 21:47:55", "product-2");
 }
 
-window.addEventListener("load", offerDate);
+// window.addEventListener("load", offerDate);
 
 /*--- End countDown Script ---*/
 
@@ -75,6 +75,51 @@ window.addEventListener('scroll', function()
 })
 
 /*--- End srollY window Script ---*/
+
+
+/*--- Start searchBook Script ---*/
+
+const searchBook = () => 
+{
+    let inputValue     = document.getElementById('search').value.toUpperCase();
+    let booksContainer = document.getElementById('books');
+    let bookCards      = booksContainer.getElementsByClassName('card');
+    let book;
+
+    for (let i = 0; i<bookCards.length; i++ )
+    {
+        book = bookCards[i].querySelector('.book-title');
+
+        if (book.innerText.toUpperCase().indexOf(inputValue) > -1)
+        {
+            bookCards[i].style.display = "";
+        }
+        else
+        {
+            bookCards[i].style.display = "none";
+        }
+    }
+
+
+}
+
+/*--- End searchBook Script ---*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Menu Script
 function toggleMobileMenu(menu) 

@@ -384,6 +384,14 @@
     .grid-category .card {
         min-width: 48%;
     }
+    .select{
+        padding-right: 20px;
+        flex-direction: column;
+        text-align: left;
+    }
+    .select > form , .select > div{
+        width: 100%;
+    }
     /* model */
     .model__img {
         width: 71.5%;

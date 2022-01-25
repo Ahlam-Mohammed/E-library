@@ -914,10 +914,11 @@ footer > article > .text p{
 /* select */
 .select{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     width: 94%;
     align-items: center;
     gap: 10px;
+    padding-right: 20px;
 }
 .select select{
     width: 140px;
@@ -927,7 +928,7 @@ footer > article > .text p{
     background: transparent;
     border: 1px solid var(--main-color);
 }
-.select > label{
+.select label{
     font-size: 14px;
     color: var(--main-color);
 }
