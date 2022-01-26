@@ -1,5 +1,4 @@
-/*--- Start countDown Script ---*/	
-
+//########################## Start countDown Script ##########################
 const countDown = ( date , id) => 
 {
     let upperDate = new Date(date).getTime();
@@ -13,16 +12,16 @@ const countDown = ( date , id) =>
 
         // Time calculations for days, hours, minutes and seconds
         let days    = Math.floor(distance / (1000 * 60 * 60 * 24));
-        let hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        // let hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        // let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        // let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element
         let element = document.getElementById(id);
 
-        element.querySelector('.secound').innerHTML = seconds;
-        element.querySelector('.minut').innerHTML   = minutes;
-        element.querySelector('.hour').innerHTML    = hours;
+        // element.querySelector('.secound').innerHTML = seconds;
+        // element.querySelector('.minut').innerHTML   = minutes;
+        // element.querySelector('.hour').innerHTML    = hours;
         element.querySelector('.day').innerHTML     = days;
 
         // If the count down is finished
@@ -30,9 +29,9 @@ const countDown = ( date , id) =>
         {
             clearInterval(x);
 
-            element.querySelector('.secound').style.display = "none";
-            element.querySelector('.minut').style.display   = "none";
-            element.querySelector('.hour').style.display    = "none";
+            // element.querySelector('.secound').style.display = "none";
+            // element.querySelector('.minut').style.display   = "none";
+            // element.querySelector('.hour').style.display    = "none";
             element.querySelector('.day').style.display     = "none";
             element.querySelector('.expired').innerHTML     = "انتهى العرض ...";
         }
@@ -48,10 +47,7 @@ const offerDate = () => {
 
 // window.addEventListener("load", offerDate);
 
-/*--- End countDown Script ---*/
-
-
-/*--- Start srollY window Script ---*/ 
+//########################## Start srollY window Script ########################## 
 let   scrollpos     = window.scrollY;
 const header        = document.querySelector(".top-header");
 const header_height = header.offsetHeight;
@@ -73,11 +69,7 @@ window.addEventListener('scroll', function()
     }
 })
 
-/*--- End srollY window Script ---*/
-
-
-/*--- Start searchBook Script ---*/
-
+//########################## Start searchBook Script ##########################
 const searchBook = () => 
 {
     let inputValue     = document.getElementById('search').value.toUpperCase();
@@ -102,11 +94,7 @@ const searchBook = () =>
 
 }
 
-/*--- End searchBook Script ---*/
-
-
-/*--- Start addToCart Script ---*/
-
+//########################## Start addToCart Script ##########################
 const cartCounter   = document.getElementById('cart');
 const carts         = document.querySelectorAll('.js-cart');
 
@@ -136,9 +124,39 @@ const addToCart = () =>
 
 window.addEventListener("load", addToCart);
 
-/*--- End addToCart Script ---*/
+//########################## Start changeLanguage Script ##########################
+const changeLang  = document.querySelectorAll('.js-language');
+const htmlElement = document.querySelector('html');
+const headElement = document.querySelector('head');
+const enLink      = document.createElement('link');
 
+let storeLang     = localStorage.getItem('lang');
 
+enLink.setAttribute('rel',"stylesheet");
+enLink.setAttribute('href',"assets/css/en.css")
+
+changeLang.forEach( element =>
+    {
+        element.addEventListener('click', ()=>
+        {
+            // storeLang = storeLang === null ? "" : storeLang;
+
+            if ( htmlElement.dir === 'rtl' )
+            {
+                htmlElement.dir = 'ltr';
+                // storeLang.setItem('ltr');
+                element.querySelector('span').innerHTML = "Arabic";
+                headElement.append(enLink);
+            }
+            else
+            {
+                htmlElement.dir = 'rtl';
+                // storeLang.setItem('rtl');
+                element.querySelector('span').innerHTML = "English";
+                headElement.removeChild(enLink)
+            }
+        });
+    });
 
 
 
