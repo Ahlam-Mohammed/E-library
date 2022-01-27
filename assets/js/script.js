@@ -22,7 +22,7 @@ const countDown = ( date , id) =>
         // element.querySelector('.secound').innerHTML = seconds;
         // element.querySelector('.minut').innerHTML   = minutes;
         // element.querySelector('.hour').innerHTML    = hours;
-        element.querySelector('.day').innerHTML     = days;
+        element.querySelector('.day').innerHTML     = "مُتبقي على العرض" +days+ " "+"يوم";
 
         // If the count down is finished
         if (distance < 0) 
@@ -43,6 +43,9 @@ const countDown = ( date , id) =>
 const offerDate = () => {
     countDown("Jan 29, 2022 21:47:55", "product-1");
     countDown("Jan 20, 2022 21:47:55", "product-2");
+    countDown("Jan 24, 2022 21:47:55", "product-3");
+    countDown("Jan 30, 2022 21:47:55", "product-4");
+    countDown("Jan 31, 2022 21:47:55", "product-5");
 }
 
 // window.addEventListener("load", offerDate);
@@ -158,51 +161,49 @@ changeLang.forEach( element =>
         });
     });
 
+//########################## Start steper Script ##########################
+let   step = 0;
 
+const stepElement = document.querySelectorAll('.step__item');
+const stepContent = document.querySelectorAll('.js-step');
 
-
-
-
-
-
-
-
-
-
-
-// Menu Script
-function toggleMobileMenu(menu) 
+const renderStep = () => 
 {
-    menu.classList.toggle('open');
+    stepContent.forEach( element =>
+        {
+            element.classList.remove('is-active');
+        });
+    stepContent[step].classList.add('is-active');
 }
 
-// Login Model Script
-const login           = document.getElementById("login");
-const register        = document.getElementById("register");
-const close__login    = document.getElementById("close__login");
-const close__register = document.getElementById("close__register");
+document
+    .querySelectorAll('.js-next-btn')
+    .forEach( element => 
+        {
+            element.addEventListener( 'click', () =>
+            {
+                step = step >= stepElement.length - 1 ? step : ++step;
+                stepElement[step].classList.add('is-active');
+                renderStep();
+            })
+        });
 
-const model__login    = document.getElementById("model__login");
-const model__register = document.getElementById("model__register");
+document
+        .querySelectorAll('.js-previews-btn')
+        .forEach( element =>
+            {
+                element.addEventListener( 'click', ()=>
+                {
+                    if (step !== 0 || step < 0)
+                    {
+                        stepElement[step].classList.remove('is-active');
+                    }
+                    step = step <= 0 ? 0 : --step;
+                    renderStep();
+                })
+            });
 
-login.addEventListener('click' , ()=>{
-    model__login.style.display = "block";
-});
-
-register.addEventListener('click' , ()=>{
-    model__login.style.display    = "none";
-    model__register.style.display = "block";
-});
-
-close__register.addEventListener('click' , ()=>{
-    model__register.style.display = "none";
-})
-
-close__login.addEventListener('click' , ()=>{
-    model__login.style.display    = "none";
-})
-
-// Banner Script
+//########################## Start Banner Script ##########################
 var slideIndex = 1;
 banner(slideIndex);
 
@@ -244,7 +245,48 @@ function banner(n)
 
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
+
+    setTimeout(banner,1000)
+
 }
+// window.addEventListener("load", banner(slideIndex));
+
+//########################## Start Menu Script ##########################
+function toggleMobileMenu(menu) 
+{
+    menu.classList.toggle('open');
+}
+
+//########################## Start Model Script ##########################
+const login           = document.querySelectorAll(".login");
+const register        = document.querySelectorAll(".register");
+const close__login    = document.querySelector("#close__login");
+const close__register = document.querySelector("#close__register");
+
+const model__login    = document.querySelector(".model__login");
+const model__register = document.querySelector(".model__register");
+
+login.forEach( element => {
+    element.addEventListener('click', ()=>{
+        model__login.style.display = "block";
+    })
+});
+
+register.forEach( element => {
+    element.addEventListener( 'click', ()=> {
+        model__login.style.display    = "none";
+        model__register.style.display = "block";
+    })
+});
+
+close__register.addEventListener('click' , ()=>{
+    model__register.style.display = "none";
+})
+
+close__login.addEventListener('click' , ()=>{
+    model__login.style.display    = "none";
+})
+
 
 
 // image slide script
