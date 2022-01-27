@@ -167,7 +167,7 @@ let   step = 0;
 const stepElement = document.querySelectorAll('.step__item');
 const stepContent = document.querySelectorAll('.js-step');
 
-const renderStep = () => 
+const steper = () => 
 {
     stepContent.forEach( element =>
         {
@@ -184,7 +184,7 @@ document
             {
                 step = step >= stepElement.length - 1 ? step : ++step;
                 stepElement[step].classList.add('is-active');
-                renderStep();
+                steper();
             })
         });
 
@@ -199,7 +199,7 @@ document
                         stepElement[step].classList.remove('is-active');
                     }
                     step = step <= 0 ? 0 : --step;
-                    renderStep();
+                    steper();
                 })
             });
 
@@ -207,29 +207,29 @@ document
 var slideIndex = 1;
 banner(slideIndex);
 
-function plus(n) 
+function plus(slide) 
 {
-    banner(slideIndex += n);
+    banner(slideIndex += slide);
 }
 
-function current(n) 
+function current(slide) 
 {
-    banner(slideIndex = n);
+    banner(slideIndex = slide);
 }
 
-function banner(n) 
+function banner(slide) 
 {
     var i;
     
     var slides = document.getElementsByClassName("banner__item");
     var dots = document.getElementsByClassName("unit__item");
 
-    if (n > slides.length) 
+    if (slide > slides.length) 
     {
         slideIndex = 1;
     } 
 
-    if (n < 1) 
+    if (slide < 1) 
     {
         slideIndex = slides.length;
     }
@@ -246,7 +246,7 @@ function banner(n)
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
 
-    setTimeout(banner,1000,n)
+    // setTimeout(banner,1000,slide)
 
 }
 // window.addEventListener("load", banner(slideIndex));
