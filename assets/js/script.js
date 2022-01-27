@@ -246,7 +246,7 @@ function banner(n)
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
 
-    setTimeout(banner,1000)
+    setTimeout(banner,1000,n)
 
 }
 // window.addEventListener("load", banner(slideIndex));

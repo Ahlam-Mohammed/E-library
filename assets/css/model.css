@@ -190,7 +190,7 @@
 .model__container .model__policy > div > a{
     position: static;
     text-align: right;
-    color: #0052cc;
+    color: var(--blue-color);
     margin-right: 5px;
 }
 .model__container .model__policy > div > input{
@@ -199,7 +199,7 @@
     margin-left: 10px;
 }
 .model__container .model__input > input:focus{
-    border-bottom-color: #0052cc;
+    border-bottom-color: var(--blue-color);
 }
 .step .model__container{
     width: 60%;
@@ -227,7 +227,7 @@
 }
 .btn--blue{
     width: 13%;
-    background: #0052cc;
+    background: var(--blue-color);
     color: #fff;
     margin-right: 10px;
     display: inline-flex;

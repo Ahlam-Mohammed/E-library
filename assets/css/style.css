@@ -74,7 +74,7 @@ p{
     font-weight: 600;
 }
 .nav__link:hover > svg use{
-    fill: #0052cc !important;
+    fill: var(--blue-color) !important;
 }
 .nav .nav__link--100w{
     width: 100%;
@@ -402,7 +402,7 @@ p{
     -o-border-radius: 4px;
 }
 .category .card:hover{
-    border: 1px solid #F70008;
+    border: 1px solid var(--red-color);
 }
 .card--details{
     margin-right: 20px;
@@ -568,11 +568,11 @@ p{
     color: var(--main-color);
 }
 .book-title__item:hover{
-    color: #0052cc;
+    color: var(--blue-color);
 }
 /* book price block */
 .book-price{
-    color: #F70008;
+    color: var(--red-color);
     /* margin-top: 10px; */
 }
 .book-price--blue{
@@ -592,7 +592,7 @@ span.book-price--blue{
     font-size: 20px;
 }
 .book-price__price--free{
-    color: #0BB54B;  
+    color: var(--green-color);  
     font-size: 20px;  
 }
 .book-price__price--min{
@@ -622,7 +622,7 @@ span.book-price--blue{
     color: var(--main-color);
 }
 .book-link--cyan {
-    color: #0052cc;
+    color: var(--blue-color);
 }
 .book-link--cyan > img,
 .row__link > img{
@@ -755,7 +755,7 @@ footer > article > .text p{
     width: 17%;
 }
 .imges .img__item--center{
-    border: 1px solid #0d5ace;
+    border: 1px solid var(--blue-color);
     border-radius: 10px;
     padding: 5px 2px;
     -webkit-border-radius: 10px;
@@ -803,8 +803,8 @@ footer > article > .text p{
     width: 30px;
     border: 1px solid #ddd;
     border-radius: 50%;
-    background-color: #0052cc;
-    border-color: #0052cc;
+    background-color: var(--blue-color);
+    border-color: var(--blue-color);
 }
 .radio:after {
     display: block;
@@ -843,7 +843,7 @@ footer > article > .text p{
 .note > a{
     text-align: right;
     display: block;
-    color: #0052cc;
+    color: var(--blue-color);
     font-size: 15px;
 }
 /* form block */
@@ -956,7 +956,7 @@ footer > article > .text p{
     margin-top: 3px;
 }
 /* counter */
-.counter{
+/* .counter{
     display: flex;
     justify-content: center;
     gap: 13px;
@@ -966,16 +966,16 @@ footer > article > .text p{
     padding: 5px;
     width: 34px;
     border-radius: 4px;
-    background: #1f56ce;
+    background: var(--blue-color);
     color: #fff;
 }
 .counter span:not(:last-child){
-    border: 1px solid #1f56ce;
+    border: 1px solid var(--blue-color);
     background: transparent;
-    color: #1f56ce;
-}
-.counter > p {
-    color: #F70008;
+    color: var(--blue-color);
+} */
+.note--green > p {
+    color: var(--red-color);
 }
 /* select */
 .select{
@@ -1078,7 +1078,7 @@ footer > article > .text p{
 .prograssDetails button{
     height: 15px;
     width: 15px;
-    background-color: red;
+    background-color: var(--red-color);
     border: none;
 }
 .prograssDetails div{
@@ -1138,8 +1138,8 @@ footer > article > .text p{
     z-index: -1;
 }
 .step__item.is-active {
-    border: 2px solid #00a651a3;
-    color: #00A651;
+    border: 2px solid var(--green-color);
+    color: var(--green-color);
     font-weight: 600;
     background: #fff;
 }
